@@ -1,5 +1,5 @@
 import * as React from "react";
-import { AppBar } from 'react-toolbox';
+import { AppBar, Button } from 'react-toolbox';
 import { Logo } from './Logo';
 const theme = require<any>('./SiteBar.css');
 
