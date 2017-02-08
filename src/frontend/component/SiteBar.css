@@ -1,0 +1,11 @@
+@import "react-toolbox/lib/app_bar/theme.css";
+
+.appBar {
+  background-color: var(--palette-green-700);
+}
+.appBar svg {
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-right: 1rem;
+  fill: #fff;
+}
