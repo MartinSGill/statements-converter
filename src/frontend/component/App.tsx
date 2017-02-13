@@ -4,7 +4,10 @@ import { Tabs, Tab } from 'react-toolbox';
 
 import { SiteBar } from './SiteBar';
 import { About } from './About';
-import { GettingStarted } from './GettingStarted';
+import { DownloadStatements } from './DownloadStatements';
+import { ModifyData } from './ModifyData';
+import { UploadStatements } from './UploadStatements';
+import { DownloadResult } from './DownloadResult';
 
 interface IAppState {
   tabIndex: number;
@@ -27,7 +30,10 @@ export class App extends React.Component<any, IAppState> {
       <SiteBar/>
       <Tabs index={this.state.tabIndex} onChange={this.handleTabChange}>
         <Tab label="Convert">
-          <GettingStarted />
+          <DownloadStatements />
+          <UploadStatements />
+          <ModifyData />
+          <DownloadResult />
         </Tab>
         <Tab label="About">
           <About />
@@ -36,3 +42,4 @@ export class App extends React.Component<any, IAppState> {
     </div>);
   }
 }
+
