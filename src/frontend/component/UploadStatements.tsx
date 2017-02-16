@@ -6,8 +6,13 @@ import * as DropZone from 'react-dropzone';
 // State is never set so we use the 'undefined' type.
 export class UploadStatements extends React.Component<undefined, undefined> {
     
-    private onDrop (files: string[]) {
-      console.log('Received files: ', files);        
+    private onDrop (files: File[]) {
+      console.log('Received files: ', files);
+      const reader = new FileReader();
+      reader.onload = (event: Event) => {
+          console.log((event.target as FileReader).result);
+      }
+      reader.readAsText(files[0]);       
     }
     render() {
         return <Card>
