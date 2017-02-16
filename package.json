@@ -25,17 +25,23 @@
     "yarn": ">=0.19.1"
   },
   "dependencies": {
-    "@types/react-dropzone": "^0.0.32",
+    "@types/redux-actions": "^1.2.2",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-dropzone": "^3.10.0",
-    "react-toolbox": "^2.0.0-beta.5"
+    "react-redux": "^5.0.2",
+    "react-toolbox": "^2.0.0-beta.5",
+    "redux-actions": "^1.2.1"
   },
   "devDependencies": {
+    "@types/node": "^7.0.5",
     "@types/react": "^15.0.7",
     "@types/react-dom": "^0.14.23",
+    "@types/react-dropzone": "^0.0.32",
     "@types/react-hot-loader": "^3.0.1",
+    "@types/react-redux": "^4.4.36",
+    "@types/webpack-env": "^1.13.0",
     "autoprefixer": "^6.6.1",
     "awesome-typescript-loader": "3.0.3",
     "cross-env": "^3.1.4",
@@ -49,6 +55,7 @@
     "postcss-mixins": "^5.4.1",
     "react-hot-loader": "^3.0.0-beta.6",
     "react-style-proptype": "^2.0.0",
+    "redux-devtools": "^3.3.2",
     "style-loader": "^0.13.1",
     "typescript": "2.2.0",
     "webpack": "^2.2.0",

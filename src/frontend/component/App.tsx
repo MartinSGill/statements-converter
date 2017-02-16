@@ -1,45 +1,56 @@
 import * as React from 'react';
 
 import { Tabs, Tab } from 'react-toolbox';
-
+import { connect } from 'react-redux';
 import { SiteBar } from './SiteBar';
 import { About } from './About';
 import { DownloadStatements } from './DownloadStatements';
 import { ModifyData } from './ModifyData';
 import { UploadStatements } from './UploadStatements';
 import { DownloadResult } from './DownloadResult';
+import { ApplicationState } from '../reducers';
+import { bindActionCreators, Dispatch } from 'redux';
+import * as AppActions from '../actions/App';
 
-interface IAppState {
-  tabIndex: number;
+interface ApplicationProps {
+  appState: ApplicationState,
+  actions: typeof AppActions    
 }
 
-export class App extends React.Component<any, IAppState> {
+export function App(props: ApplicationProps) {
 
-  constructor() {
-    super();
-    this.state = { tabIndex: 0 };
-  }
+  const {appState, actions} = props;
 
-  private handleTabChange = (index:number) => {
-    this.setState({tabIndex: index});
-  };
-
-  render() {
-    return (
+  return (
     <div>
-      <SiteBar/>
-      <Tabs index={this.state.tabIndex} onChange={this.handleTabChange}>
+      <SiteBar />
+      <Tabs index={appState.tabIndex} onChange={actions.changeTab}>
         <Tab label="Convert">
           <DownloadStatements />
-          <UploadStatements />
+          <UploadStatements {...props} />
           <ModifyData />
           <DownloadResult />
         </Tab>
         <Tab label="About">
           <About />
         </Tab>
-      </Tabs>      
+      </Tabs>
     </div>);
-  }
 }
 
+function mapStateToProps(state: ApplicationState) {
+  return { appState: state };
+}
+
+function mapDispatchToProps(dispatch: any) {
+  return {
+    actions: bindActionCreators(AppActions as any, dispatch)
+  };
+}
+
+const connected = connect(
+  mapStateToProps,
+  mapDispatchToProps
+);
+
+export const TheApp = connected(App);
