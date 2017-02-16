@@ -25,7 +25,6 @@
     "yarn": ">=0.19.1"
   },
   "dependencies": {
-    "@types/redux-actions": "^1.2.2",
     "react": "^15.4.2",
     "react-addons-css-transition-group": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -35,6 +34,7 @@
     "redux-actions": "^1.2.1"
   },
   "devDependencies": {
+    "@types/redux-actions": "^1.2.2",
     "@types/node": "^7.0.5",
     "@types/react": "^15.0.7",
     "@types/react-dom": "^0.14.23",
@@ -56,6 +56,7 @@
     "react-hot-loader": "^3.0.0-beta.6",
     "react-style-proptype": "^2.0.0",
     "redux-devtools": "^3.3.2",
+    "rimraf": "^2.5.4",
     "style-loader": "^0.13.1",
     "typescript": "2.2.0",
     "webpack": "^2.2.0",
@@ -63,7 +64,8 @@
   },
   "scripts": {
     "start": "node_modules/.bin/cross-env NODE_ENV=development node_modules/.bin/webpack-dev-server --open --colors --config webpack.config.js",
-    "build": "node_modules/.bin/cross-env NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config webpack.config.js"
+    "build": "node_modules/.bin/cross-env NODE_ENV=production UV_THREADPOOL_SIZE=100 webpack --config webpack.config.js",
+    "clean": "node_modules/.bin/rimraf build"
   },
   "license": "MIT",
   "homepage": "https://github.com/MartinSGill/abn-amro-statement-converter"

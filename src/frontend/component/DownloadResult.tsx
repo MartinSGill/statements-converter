@@ -1,11 +1,15 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
+import { WorkflowStages } from '../reducers/ApplicationState';
 
-// No props, so use undefined
-// State is never set so we use the 'undefined' type.
-export class DownloadResult extends React.Component<undefined, undefined> {
-    render() {
-        return <Card>
+interface DownloadResultProps {
+    workflowStage: WorkflowStages;
+}
+
+export function DownloadResult(props: DownloadResultProps) {
+    if (props.workflowStage === 'Download') {
+
+    return <Card>
             <CardTitle
                 title="Almost Done"
                 subtitle="" />
@@ -19,4 +23,6 @@ export class DownloadResult extends React.Component<undefined, undefined> {
             </CardText>
         </Card>;
     }
+
+    return <div>Hidden</div>
 }

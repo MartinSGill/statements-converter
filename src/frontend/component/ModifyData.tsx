@@ -1,10 +1,16 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
+import { WorkflowStages } from '../reducers/ApplicationState'
+
+interface ModifyDataProps {
+    workflowStage: WorkflowStages;
+}
 
 // No props, so use undefined
 // State is never set so we use the 'undefined' type.
-export class ModifyData extends React.Component<undefined, undefined> {
-    render() {
+export function ModifyData(props: ModifyDataProps) {
+    if (props.workflowStage === 'Modify')
+    {
         return <Card>
             <CardTitle
                 title="Modify Data"
@@ -19,4 +25,6 @@ export class ModifyData extends React.Component<undefined, undefined> {
             </CardText>
         </Card>;
     }
+
+    return <div>Hidden!</div>
 }

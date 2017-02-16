@@ -4,7 +4,7 @@ import { Tabs, Tab } from 'react-toolbox';
 import { connect } from 'react-redux';
 import { SiteBar } from './SiteBar';
 import { About } from './About';
-import { DownloadStatements } from './DownloadStatements';
+import { GetStatements } from './GetStatements';
 import { ModifyData } from './ModifyData';
 import { UploadStatements } from './UploadStatements';
 import { DownloadResult } from './DownloadResult';
@@ -26,10 +26,10 @@ export function App(props: ApplicationProps) {
       <SiteBar />
       <Tabs index={appState.tabIndex} onChange={actions.changeTab}>
         <Tab label="Convert">
-          <DownloadStatements />
-          <UploadStatements {...props} />
-          <ModifyData />
-          <DownloadResult />
+          <GetStatements workflowStage={appState.workflowStage} />
+          <UploadStatements workflowStage={appState.workflowStage} />
+          <ModifyData workflowStage={appState.workflowStage}  />
+          <DownloadResult workflowStage={appState.workflowStage}  />
         </Tab>
         <Tab label="About">
           <About />

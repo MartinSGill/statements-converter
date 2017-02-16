@@ -1,5 +1,6 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
+import { WorkflowStages } from '../reducers/ApplicationState';
 import * as DropZone from 'react-dropzone';
 
 function onDrop(files: File[]) {
@@ -11,9 +12,13 @@ function onDrop(files: File[]) {
     reader.readAsText(files[0]);
 }
 
+interface UploadStatementsProps {
+    workflowStage: WorkflowStages;
+}
+
 // No props, so use undefined
 // State is never set so we use the 'undefined' type.
-export function UploadStatements(props: any) {
+export function UploadStatements(props: UploadStatementsProps) {
     if (props.workflowStage == 'Upload') {
     return (
         <Card>
@@ -33,6 +38,8 @@ export function UploadStatements(props: any) {
                 </DropZone>
             </CardText>
         </Card>);
-    } return <div>It's Hidden! {props.workflowStage}</div>
+    } 
+    
+    return <div>It's Hidden! {props.workflowStage}</div>
 }
 

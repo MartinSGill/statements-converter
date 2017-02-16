@@ -1,4 +1,4 @@
-export type WorkflowStages = 'Get' | 'Upload' | 'Edit' | 'Download';
+export type WorkflowStages = 'Get' | 'Upload' | 'Modify' | 'Download';
 
 export interface ApplicationState {
   workflowStage: WorkflowStages;
