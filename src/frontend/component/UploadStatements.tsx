@@ -1,13 +1,13 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
-import { WorkflowStage } from '../constants/WorkflowStage';
-import * as DropZone from 'react-dropzone';
-import { nextWorkflowStage, prevWorkflowStage } from '../actions/App';
-import { NextStageButton } from './NextStageButton';
-import { PreviousStageButton } from './PreviousStageButton';
+import { WorkflowStage } from "../constants/WorkflowStage";
+import * as DropZone from "react-dropzone";
+import { nextWorkflowStage, prevWorkflowStage } from "../actions/App";
+import { NextStageButton } from "./NextStageButton";
+import { PreviousStageButton } from "./PreviousStageButton";
 
 function onDrop(files: File[]) {
-    console.log('Received files: ', files);
+    console.log("Received files: ", files);
     const reader = new FileReader();
     reader.onload = (event: Event) => {
         console.log((event.target as FileReader).result);
@@ -23,7 +23,7 @@ interface UploadStatementsProps {
 
 
 // No props, so use undefined
-// State is never set so we use the 'undefined' type.
+// State is never set so we use the "undefined" type.
 export function UploadStatements(props: UploadStatementsProps) {
     if (props.workflowStage == WorkflowStage.UPLOAD) {
     return (

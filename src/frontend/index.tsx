@@ -1,13 +1,12 @@
-import * as React from 'react';
-import * as ReactDOM from 'react-dom';
-import { TheApp , App } from './component/App';
-import { AppContainer } from 'react-hot-loader';
-//import { overrideComponentTypeChecker } from 'react-toolbox';
-import { Provider } from 'react-redux';
+import * as React from "react";
+import * as ReactDOM from "react-dom";
+import { TheApp , App } from "./component/App";
+import { AppContainer } from "react-hot-loader";
+import { Provider } from "react-redux";
 
-const rootEl = document.getElementById('app');
+const rootEl = document.getElementById("app");
 
-import configureStore from './store';
+import configureStore from "./store";
 const store = configureStore();
 
 const render = () => {
@@ -21,7 +20,7 @@ const render = () => {
   );
 };
 
-// if (process.env.NODE_ENV !== 'production') {
+// if (process.env.NODE_ENV !== "production") {
 //   overrideComponentTypeChecker((classType, reactElement) => (
 //     reactElement && (
 //       reactElement.type === classType
@@ -29,7 +28,7 @@ const render = () => {
 //     )
 //   ));
 //   if (module.hot) {
-//     module.hot.accept('./component/App', render);
+//     module.hot.accept("./component/App", render);
 //   }
 // }
 

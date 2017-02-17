@@ -1,19 +1,19 @@
-import * as React from 'react';
-import { Tabs, Tab } from 'react-toolbox';
-import { connect } from 'react-redux';
-import { SiteBar } from './SiteBar';
-import { About } from './About';
-import { GetStatements } from './GetStatements';
-import { ModifyData } from './ModifyData';
-import { UploadStatements } from './UploadStatements';
-import { DownloadResult } from './DownloadResult';
-import { ApplicationState } from '../reducers';
-import { bindActionCreators, Dispatch } from 'redux';
-import * as AppActions from '../actions/App';
+import * as React from "react";
+import { Tabs, Tab } from "react-toolbox";
+import { connect } from "react-redux";
+import { SiteBar } from "./SiteBar";
+import { About } from "./About";
+import { GetStatements } from "./GetStatements";
+import { ModifyData } from "./ModifyData";
+import { UploadStatements } from "./UploadStatements";
+import { DownloadResult } from "./DownloadResult";
+import { ApplicationState } from "../reducers";
+import { bindActionCreators, Dispatch } from "redux";
+import * as AppActions from "../actions/App";
 
 interface ApplicationProps {
-  appState: ApplicationState,
-  actions: typeof AppActions    
+  appState: ApplicationState;
+  actions: typeof AppActions;
 }
 
 export function App(props: ApplicationProps) {

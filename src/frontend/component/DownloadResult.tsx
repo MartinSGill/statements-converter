@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
-import { WorkflowStage } from '../constants/WorkflowStage';
-import { prevWorkflowStage } from '../actions/App';
-import { PreviousStageButton } from './PreviousStageButton';
+import { WorkflowStage } from "../constants/WorkflowStage";
+import { prevWorkflowStage } from "../actions/App";
+import { PreviousStageButton } from "./PreviousStageButton";
 
 interface DownloadResultProps {
     workflowStage: number;

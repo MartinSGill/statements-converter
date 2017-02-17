@@ -1,7 +1,7 @@
 import * as React from "react";
 import { Button } from "react-toolbox";
-import * as DropZone from 'react-dropzone';
-import { prevWorkflowStage } from '../actions/App';
+import * as DropZone from "react-dropzone";
+import { prevWorkflowStage } from "../actions/App";
 
 interface PreviousStageButtonProps {
     onPrevious: typeof prevWorkflowStage;

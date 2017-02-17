@@ -1,5 +1,5 @@
-import { Actions } from '../constants/Actions'
-import { WorkflowStage } from '../constants/WorkflowStage';
+import { Actions } from "../constants/Actions";
+import { WorkflowStage } from "../constants/WorkflowStage";
 
 export function workflowStage(state: number, action: any) : number {
   switch (action.type) {
@@ -24,6 +24,5 @@ export function tabIndex(state: number, action: any): number {
   if (action.type === Actions.APP_CHANGE_TAB) {
     return action.payload;
   }
-  
   return state || 0;
 }

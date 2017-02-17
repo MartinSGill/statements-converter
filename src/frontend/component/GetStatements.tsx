@@ -1,8 +1,8 @@
 import * as React from "react";
 import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
-import { WorkflowStage } from '../constants/WorkflowStage';
-import { NextStageButton } from './NextStageButton';
-import { nextWorkflowStage } from '../actions/App';
+import { WorkflowStage } from "../constants/WorkflowStage";
+import { NextStageButton } from "./NextStageButton";
+import { nextWorkflowStage } from "../actions/App";
 
 interface GetStatementsProps {
     workflowStage: number;

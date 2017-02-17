@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 
 export const Logo = (props:any) => (
   <svg viewBox="0 0 144 131" {...props}>
