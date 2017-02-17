@@ -1,13 +1,16 @@
 import * as React from "react";
-import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
-import { WorkflowStages } from '../reducers/ApplicationState';
+import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
+import { WorkflowStage } from '../constants/WorkflowStage';
+import { prevWorkflowStage } from '../actions/App';
+import { PreviousStageButton } from './PreviousStageButton';
 
 interface DownloadResultProps {
-    workflowStage: WorkflowStages;
+    workflowStage: number;
+    onPrevious: typeof prevWorkflowStage;
 }
 
 export function DownloadResult(props: DownloadResultProps) {
-    if (props.workflowStage === 'Download') {
+    if (props.workflowStage === WorkflowStage.DOWNLOAD) {
 
     return <Card>
             <CardTitle
@@ -20,9 +23,11 @@ export function DownloadResult(props: DownloadResultProps) {
                         leftIcon="file_download"
                     />
                 </List>
+                <Navigation>
+                    <PreviousStageButton onPrevious={props.onPrevious} />
+                </Navigation>
             </CardText>
         </Card>;
     }
-
-    return <div>Hidden</div>
+    return <div/>
 }

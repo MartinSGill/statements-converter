@@ -1,3 +1,5 @@
 export const Actions = { 
-    APP_CHANGE_TAB: 'APP_CHANGE_TAB'
+    APP_CHANGE_TAB: 'APP_CHANGE_TAB',
+    APP_NEXT_STAGE:  'APP_NEXT_STAGE',
+    APP_PREV_STAGE:  'APP_PREV_STAGE',
 }

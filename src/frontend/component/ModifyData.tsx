@@ -1,15 +1,20 @@
 import * as React from "react";
-import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
-import { WorkflowStages } from '../reducers/ApplicationState'
+import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
+import { WorkflowStage } from '../constants/WorkflowStage';
+import { nextWorkflowStage, prevWorkflowStage } from '../actions/App';
+import { NextStageButton } from './NextStageButton';
+import { PreviousStageButton } from './PreviousStageButton';
 
 interface ModifyDataProps {
-    workflowStage: WorkflowStages;
+    workflowStage: number;
+    onNext: typeof nextWorkflowStage;
+    onPrevious: typeof prevWorkflowStage;
 }
 
 // No props, so use undefined
 // State is never set so we use the 'undefined' type.
 export function ModifyData(props: ModifyDataProps) {
-    if (props.workflowStage === 'Modify')
+    if (props.workflowStage === WorkflowStage.MODIFY)
     {
         return <Card>
             <CardTitle
@@ -22,9 +27,12 @@ export function ModifyData(props: ModifyDataProps) {
                         leftIcon="edit"
                     />
                 </List>
+                <Navigation>
+                    <PreviousStageButton onPrevious={props.onPrevious} />
+                    <NextStageButton onNext={props.onNext} />
+                </Navigation>
             </CardText>
         </Card>;
     }
-
-    return <div>Hidden!</div>
+    return <div/>
 }

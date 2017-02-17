@@ -1,13 +1,16 @@
 import * as React from "react";
-import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
-import { WorkflowStages } from '../reducers/ApplicationState';
+import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
+import { WorkflowStage } from '../constants/WorkflowStage';
+import { NextStageButton } from './NextStageButton';
+import { nextWorkflowStage } from '../actions/App';
 
 interface GetStatementsProps {
-    workflowStage: WorkflowStages;
+    workflowStage: number;
+    onNext: typeof nextWorkflowStage;
 }
 
 export function GetStatements(props: GetStatementsProps) {
-    if (props.workflowStage === 'Get')
+    if (props.workflowStage === WorkflowStage.GET)
     {
         return <Card>
             <CardTitle
@@ -20,9 +23,11 @@ export function GetStatements(props: GetStatementsProps) {
                         leftIcon="file_download"
                     />
                 </List>
+                <Navigation>
+                    <NextStageButton onNext={props.onNext} />
+                </Navigation>
             </CardText>
         </Card>;
     }
-
-    return <div>Hidden</div>
+    return <div/>
 }

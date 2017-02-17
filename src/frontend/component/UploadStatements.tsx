@@ -1,7 +1,10 @@
 import * as React from "react";
-import { Card, CardTitle, CardText, List, ListItem } from "react-toolbox";
-import { WorkflowStages } from '../reducers/ApplicationState';
+import { Card, CardTitle, CardText, List, ListItem, Navigation } from "react-toolbox";
+import { WorkflowStage } from '../constants/WorkflowStage';
 import * as DropZone from 'react-dropzone';
+import { nextWorkflowStage, prevWorkflowStage } from '../actions/App';
+import { NextStageButton } from './NextStageButton';
+import { PreviousStageButton } from './PreviousStageButton';
 
 function onDrop(files: File[]) {
     console.log('Received files: ', files);
@@ -13,13 +16,16 @@ function onDrop(files: File[]) {
 }
 
 interface UploadStatementsProps {
-    workflowStage: WorkflowStages;
+    workflowStage: number;
+    onNext: typeof nextWorkflowStage;
+    onPrevious: typeof prevWorkflowStage;
 }
+
 
 // No props, so use undefined
 // State is never set so we use the 'undefined' type.
 export function UploadStatements(props: UploadStatementsProps) {
-    if (props.workflowStage == 'Upload') {
+    if (props.workflowStage == WorkflowStage.UPLOAD) {
     return (
         <Card>
             <CardTitle
@@ -36,10 +42,13 @@ export function UploadStatements(props: UploadStatementsProps) {
                 <DropZone onDrop={onDrop}>
                     <div>Try dropping some files here, or click to select files to upload.</div>
                 </DropZone>
+                <Navigation>
+                    <PreviousStageButton onPrevious={props.onPrevious} />
+                    <NextStageButton onNext={props.onNext} />
+                </Navigation>
             </CardText>
         </Card>);
     } 
-    
-    return <div>It's Hidden! {props.workflowStage}</div>
+    return <div/>
 }
 
